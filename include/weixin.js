@@ -34,7 +34,7 @@ module.exports = function (req,res,next) {
         }
 
         if(message.Content == "0"){
-            reply("返回上一级" +  req.session.step);
+            res.reply("返回上一级" +  req.session.step);
         }
 
         if(message.Content == "1"){
