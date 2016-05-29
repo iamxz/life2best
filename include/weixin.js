@@ -32,7 +32,7 @@ module.exports = function (req,res,next) {
     logger.log("info",message);
 
     if(message.MsgType == "text"){
-        if(/\\?|help/gi.test(message.Content)){
+        if(~message.Content.indexOf("?") || ~ message.Content.indexOf("什么") || ~ message.Content.indexOf("help")){
             res.reply({
                 content: _list,
                 type: 'text'
