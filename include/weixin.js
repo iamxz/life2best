@@ -37,7 +37,7 @@ module.exports = function (req,res,next) {
         }
 
         if(message.Content == "3"){
-            res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n “怎么会这样子!” \n“那是一个鸟不拉屎的地方！”')
+            res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
         }
         if(message.Content == "4"){
             res.reply("请输入歌曲名")
@@ -57,9 +57,9 @@ module.exports = function (req,res,next) {
         //订阅
         if(message.Event == "subscribe"){
             res.reply({
-                content: 'text object',
+                content: _list,
                 type: 'text'
-            })
+            });
         }
 
         //退订
