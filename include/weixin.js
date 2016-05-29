@@ -35,33 +35,33 @@ module.exports = function (req,res,next) {
         }
 
         if(message.Content == "0"){
-            res.reply("返回上一级");
+            res.reply("返回上一级" + current[message.FromUserName] || 0);
         }
 
         if(message.Content == "1"){
-            current[message.OpenID] =1;
+            current[message.FromUserName] =1;
             res.reply("请输入查询的公司名称")
         }
 
         if(message.Content == "2"){
-            req.session.step = 2 ;
+            current[message.FromUserName]  = 2 ;
             res.reply("请输入地区")
         }
 
         if(message.Content == "3"){
-            req.session.step = 3 ;
+            current[message.FromUserName]  = 3 ;
             res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
         }
         if(message.Content == "4"){
-            req.session.step = 4;
+            current[message.FromUserName]  = 4;
             res.reply("请输入歌曲名")
         }
         if(message.Content == "5"){
-            req.session.step = 5 ;
+            current[message.FromUserName]  = 5 ;
             res.reply("请输入快递单号")
         }
         if(message.Content == "6"){
-            req.session.step = 6 ;
+            current[message.FromUserName]  = 6 ;
             res.reply("请输入地区名称")
         }
     }
