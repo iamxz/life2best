@@ -3,7 +3,8 @@
  */
 var menu = require("./menu");
 var winston  = require("winston");
-var logger = new (winston.Logger)({
+var logger = new winston.Logger({
+    level: 'info',
     transports: [
         new (winston.transports.Console)(),
         new (winston.transports.File)({ filename: 'life2best.log' })
@@ -20,11 +21,12 @@ var _list = [
 
 module.exports = function (req,res,next) {
     var message = req.weixin;
+
     logger.log("________________________________");
     logger.log(message);
 
     if(message.MsgType == "text"){
-        if(/^[\?|help]/gi.test(message.Content)){
+        if(/^[?|help]/gi.test(message.Content)){
             res.reply({
                 content: _list,
                 type: 'text'
