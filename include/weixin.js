@@ -56,7 +56,7 @@ module.exports = function (req,res,next) {
 
                    logger.log("info",code);
                    web("http://www.weather.com.cn/data/sk/" + code + ".html",function (error, response, body) {
-                       logger.log("info",body);
+                       logger.log("info",arguments);
                        res.reply("天气");
                    })
                }else{
@@ -90,10 +90,9 @@ module.exports = function (req,res,next) {
             res.reply("请输入快递单号")
         }
         if(message.Content == "6"){
-            app.locals[_thisUser]  = 6 ;
+            db.set(_thisUser,6).value();
             res.reply("请输入地区名称")
         }
-        logger.log("info","current" +app.locals[_thisUser] );
 
         setTimeout(function () {
             res.reply("输入错误")
