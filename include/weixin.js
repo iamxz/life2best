@@ -5,8 +5,8 @@ var menu = require("./menu");
 var web  = require("request");
 var FS    = require("fs");
 var winston  = require("winston");
+var app = require("express")();
 var weather  = FS.readFileSync("./data/weather.db","utf-8");
-
 
 var logger = new (winston.Logger)({
     level: 'info',
@@ -24,10 +24,9 @@ var _list = [
     "6,查区号",
 ].join("\n");
 
-var current = {};
 module.exports = function (req,res,next) {
     var message = req.weixin;
-
+    var _thisUser = message.FromUserName;
     logger.log("info",message);
 
     if(message.MsgType == "text"){
@@ -41,11 +40,13 @@ module.exports = function (req,res,next) {
 
 
         if(message.Content == "0"){
-            res.reply("返回上一级" + current[message.FromUserName] || 0);
+            res.reply("返回上一级" + app.locals[_thisUser] || 0);
         }
-        logger.log("info","选择的是" +current[message.FromUserName]);
-        if(current[message.FromUserName]){
-            if(current[message.FromUserName] == 1){
+
+
+        logger.log("info",app.locals[_thisUser])
+        if(app.locals[_thisUser]){
+            if(app.locals[_thisUser] == 1){
                 var index = weather.indexOf(message.Content);
                 logger.log("info","code的顺序是" +index);
                if(index >-1){
@@ -62,34 +63,34 @@ module.exports = function (req,res,next) {
         }
 
         if(message.Content == "1"){
-            current[message.FromUserName] =1;
+            app.locals[_thisUser] = 1;
             res.reply("请输入地区,例如： “北京”");
         }
 
         if(message.Content == "2"){
-            current[message.FromUserName]  = 2 ;
+            app.locals[_thisUser]  = 2 ;
 
             res.reply("请输入查询的公司名称")
 
         }
 
         if(message.Content == "3"){
-            current[message.FromUserName]  = 3 ;
+            app.locals[_thisUser]  = 3 ;
             res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
         }
         if(message.Content == "4"){
-            current[message.FromUserName]  = 4;
+            app.locals[_thisUser]  = 4;
             res.reply("请输入歌曲名")
         }
         if(message.Content == "5"){
-            current[message.FromUserName]  = 5 ;
+            app.locals[_thisUser]  = 5 ;
             res.reply("请输入快递单号")
         }
         if(message.Content == "6"){
-            current[message.FromUserName]  = 6 ;
+            app.locals[_thisUser]  = 6 ;
             res.reply("请输入地区名称")
         }
-
+        logger.log("info","current" +current);
 
         setTimeout(function () {
             res.reply("输入错误")
