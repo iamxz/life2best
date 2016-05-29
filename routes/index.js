@@ -22,6 +22,12 @@ app.use('/wechat', wechat({
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'left2best' });
 });
+router.all('/weixin', function(req, res, next) {
+  console.log(req)
+  res.send(req.query.echostr);
+});
+
+
 
 
 
