@@ -56,13 +56,17 @@ module.exports = function (req,res,next) {
                    var code = weather.substring(index-10,index-1);
                    web.get("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
 
-                       if(response){
-                           logger.log("info",arguments);
-                           var weatherinfo = JSON.parse(body);
-                           var data = weatherinfo["weatherinfo"];
-
-                           res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
+                       if(error){
+                           res.reply("查询失败");
+                           return;
                        }
+                       
+                       logger.log("info",body);
+                       var weatherinfo = JSON.parse(body);
+                       var data = weatherinfo["weatherinfo"];
+
+                       res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
+
 
                    });
                    return ;
