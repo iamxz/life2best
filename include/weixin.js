@@ -28,7 +28,6 @@ var current = {};
 module.exports = function (req,res,next) {
     var message = req.weixin;
 
-    logger.log("info","________________________________");
     logger.log("info",message);
 
     if(message.MsgType == "text"){
@@ -44,14 +43,14 @@ module.exports = function (req,res,next) {
         if(message.Content == "0"){
             res.reply("返回上一级" + current[message.FromUserName] || 0);
         }
-
+        logger.log("info","选择的是" +current[message.FromUserName]);
         if(current[message.FromUserName]){
             if(current[message.FromUserName] == 1){
                 var index = weather.indexOf(message.Content);
                 logger.log("info","code的顺序是" +index);
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/sk/101110101.html"
-                   var code = weather.substring(i-10,i-1);
+                   var code = weather.substring(index-10,index-1);
                    web("http://www.weather.com.cn/data/sk/" + code + ".html",function (error, response, body) {
                        logger.log("info",body);
                        res.reply("天气")
