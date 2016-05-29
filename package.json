@@ -14,10 +14,10 @@
     "express": "~4.13.1",
     "express-session": "^1.13.0",
     "lodash": "^4.13.1",
-    "log4js": "^0.6.36",
     "morgan": "~1.6.1",
     "request": "^2.72.0",
     "serve-favicon": "~2.3.0",
-    "wechat": "^2.0.3"
+    "wechat": "^2.0.3",
+    "winston": "^2.2.0"
   }
 }

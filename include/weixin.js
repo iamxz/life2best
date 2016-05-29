@@ -2,7 +2,13 @@
  * Created by xue on 2016/5/29.
  */
 var menu = require("./menu");
-
+var winston  = require("winston");
+var logger = new (winston.Logger)({
+    transports: [
+        new (winston.transports.Console)(),
+        new (winston.transports.File)({ filename: 'life2best.log' })
+    ]
+});
 var _list = [
     "1,天气预报",
     "2,电话号码",
@@ -14,7 +20,8 @@ var _list = [
 
 module.exports = function (req,res,next) {
     var message = req.weixin;
-    console.log(message);
+    logger.log("________________________________");
+    logger.log(message);
 
     if(message.MsgType == "text"){
         if(/^[\?|help]/gi.test(message.Content)){
@@ -49,8 +56,6 @@ module.exports = function (req,res,next) {
             res.reply("请输入地区名称")
         }
     }
-
-
 
 
     if(message.MsgType == "event"){
