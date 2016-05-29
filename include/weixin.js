@@ -32,7 +32,7 @@ module.exports = function (req,res,next) {
     logger.log("info",message);
 
     if(message.MsgType == "text"){
-        if(/^(\?|help)/gi.test(message.Content)){
+        if(/\?|help/gi.test(message.Content)){
             res.reply({
                 content: _list,
                 type: 'text'
@@ -90,6 +90,11 @@ module.exports = function (req,res,next) {
             current[message.FromUserName]  = 6 ;
             res.reply("请输入地区名称")
         }
+
+
+        setTimeout(function () {
+            res.reply("输入错误")
+        },0);
 
 
     }
