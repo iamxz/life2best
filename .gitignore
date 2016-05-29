@@ -2,7 +2,6 @@
 logs
 *.log
 npm-debug.log*
-.idea
 # Runtime data
 pids
 *.pid
@@ -25,7 +24,8 @@ build/Release
 
 # Dependency directory
 node_modules
-
+.idea
+.idea/
 # Optional npm cache directory
 .npm
 

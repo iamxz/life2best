@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 var bodyParser = require('body-parser');
-
+var wechat = require('wechat');
 var routes = require('./routes/index');
-
+var config = require("./config");
 var app = express();
 
 // view engine setup
@@ -26,6 +26,15 @@ app.use(session({secret: 'keyboard cat', cookie: {maxAge: 60000}}))
 
 app.use('/', routes);
 
+app.use('/wechat', wechat({
+  token: config.weixin.token,
+  appid: config.weixin.appid,
+  encodingAESKey: config.weixin.encodingAESKey
+}, function (req, res, next) {
+  // 微信输入信息都在req.weixin上
+  var message = req.weixin;
+  console.log(message);
+}));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
