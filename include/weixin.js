@@ -42,11 +42,14 @@ module.exports = function (req,res,next) {
 
 
         if(message.Content == "0"){
-            res.reply("返回上一级" + db.get(_thisUser)|| 0);
+            db.set(_thisUser,0).value();
+            res.reply("返回上级菜单");
+            return;
         }
 
         if(db.get(_thisUser)){
             if(db.get(_thisUser) == 1){
+
                 var index = weather.indexOf(message.Content);
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
@@ -54,15 +57,49 @@ module.exports = function (req,res,next) {
                    web("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
                        var data = JSON.parse(body).weatherinfo;
                        logger.log("info",body);
-
-                       res.reply(data.city + "天气 ：" + data.weather+"\n 温度：" + data.temp1 + "到" +data.temp2 + "度");
+                       res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
                    });
-
                    return ;
+
                }else{
                    res.reply("请输入正确的城市")
                }
             }
+
+            //电话号码
+            if(db.get(_thisUser) == 2){
+                res.reply("正在开发中");
+                return;
+            }
+
+            //笑话
+            if(db.get(_thisUser) == 3){
+                res.reply("正在开发中");
+                return;
+
+            }
+
+
+            //歌曲
+            if(db.get(_thisUser) == 4){
+                res.reply("正在开发中");
+                return;
+            }
+
+
+            //快递单号
+            if(db.get(_thisUser) == 5){
+                res.reply("正在开发中");
+                return;
+            }
+
+            //区号
+            if(db.get(_thisUser) == 6){
+                res.reply("正在开发中");
+                return;
+            }
+
+
         }
 
         if(message.Content == "1"){
