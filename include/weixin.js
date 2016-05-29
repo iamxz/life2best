@@ -45,18 +45,19 @@ module.exports = function (req,res,next) {
             res.reply("返回上一级" + db.get(_thisUser)|| 0);
         }
 
-        logger.log("info",db.get(_thisUser));
         if(db.get(_thisUser)){
             if(db.get(_thisUser) == 1){
                 var index = weather.indexOf(message.Content);
-                logger.log("info","code的顺序是" +index);
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
                    var code = weather.substring(index-10,index-1);
                    web("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
                        var data = JSON.parse(body);
+                       logger.log("info",body);
+
                        res.reply(data.city + "天气 ：" + data.weather+"\n 温度：" + data.temp1 + "到" +data.temp2 + "度");
                    });
+
                    return ;
                }else{
                    res.reply("请输入正确的城市")
