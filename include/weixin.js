@@ -52,7 +52,7 @@ module.exports = function (req,res,next) {
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
                    var code = weather.substring(index-10,index-1);
                    web("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
-                       var data = JSON.parse(body);
+                       var data = JSON.parse(body).weatherinfo;
                        logger.log("info",body);
 
                        res.reply(data.city + "天气 ：" + data.weather+"\n 温度：" + data.temp1 + "到" +data.temp2 + "度");
