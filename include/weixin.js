@@ -43,8 +43,7 @@ module.exports = function (req,res,next) {
             res.reply("返回上一级" + app.locals[_thisUser] || 0);
         }
 
-
-        logger.log("info",app.locals[_thisUser])
+        logger.log("info",app.locals[_thisUser]);
         if(app.locals[_thisUser]){
             if(app.locals[_thisUser] == 1){
                 var index = weather.indexOf(message.Content);
