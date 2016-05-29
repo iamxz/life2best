@@ -2,7 +2,10 @@
  * Created by xue on 2016/5/29.
  */
 var menu = require("./menu");
+var fs    = require("fs");
 var winston  = require("winston");
+var weather  = fs.readFileSync("../data/weather");
+console.log(weather)
 var logger = new (winston.Logger)({
     level: 'info',
     transports: [
@@ -34,18 +37,28 @@ module.exports = function (req,res,next) {
             });
         }
 
+
+
         if(message.Content == "0"){
             res.reply("返回上一级" + current[message.FromUserName] || 0);
         }
 
+        if(current[message.FromUserName]){
+            if(current[message.FromUserName] == 1){
+                logger.log("info",weather);
+            }
+        }
+
         if(message.Content == "1"){
             current[message.FromUserName] =1;
-            res.reply("请输入查询的公司名称")
+            res.reply("请输入地区,例如： “北京”");
         }
 
         if(message.Content == "2"){
             current[message.FromUserName]  = 2 ;
-            res.reply("请输入地区")
+
+            res.reply("请输入查询的公司名称")
+
         }
 
         if(message.Content == "3"){
@@ -64,6 +77,8 @@ module.exports = function (req,res,next) {
             current[message.FromUserName]  = 6 ;
             res.reply("请输入地区名称")
         }
+
+
     }
 
 
