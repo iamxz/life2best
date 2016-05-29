@@ -48,10 +48,9 @@ module.exports = function (req,res,next) {
         if(current[message.FromUserName]){
             if(current[message.FromUserName] == 1){
                 var index = weather.indexOf(message.Content);
-                logger.log("info",index);
+                logger.log("info","code的顺序是" +index);
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/sk/101110101.html"
-
                    var code = weather.substring(i-10,i-1);
                    web("http://www.weather.com.cn/data/sk/" + code + ".html",function (error, response, body) {
                        logger.log("info",body);
@@ -60,8 +59,6 @@ module.exports = function (req,res,next) {
                }else{
                    res.reply("请输入正确的城市")
                }
-
-
             }
         }
 
