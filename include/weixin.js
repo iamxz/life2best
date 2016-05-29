@@ -1,12 +1,13 @@
 /**
  * Created by xue on 2016/5/29.
  */
+
 var menu = require("./menu");
 var web  = require("request");
-var FS    = require("fs");
+var fs    = require("fs");
 var winston  = require("winston");
 var app = require("express")();
-var weather  = FS.readFileSync("./data/weather.db","utf-8");
+var weather  = fs.readFileSync("./data/weather.db","utf-8");
 
 var logger = new (winston.Logger)({
     level: 'info',
@@ -91,7 +92,7 @@ module.exports = function (req,res,next) {
             app.locals[_thisUser]  = 6 ;
             res.reply("请输入地区名称")
         }
-        logger.log("info","current" +current);
+        logger.log("info","current" +app.locals[_thisUser] );
 
         setTimeout(function () {
             res.reply("输入错误")
