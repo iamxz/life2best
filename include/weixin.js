@@ -54,7 +54,7 @@ module.exports = function (req,res,next) {
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
                    var code = weather.substring(index-10,index-1);
-                   web("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
+                   web.get("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
                        var weatherinfo = JSON.parse(body);
                        var data = weatherinfo["weatherinfo"];
                        logger.log("info",body);
