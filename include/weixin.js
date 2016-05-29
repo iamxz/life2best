@@ -19,11 +19,13 @@ var _list = [
     "6,查区号",
 ].join("\n");
 
+var current = {};
 module.exports = function (req,res,next) {
     var message = req.weixin;
 
-    logger.log("________________________________");
-    logger.log(message);
+    logger.log("info","________________________________");
+    console.log(message);
+    logger.log("info",message);
 
     if(message.MsgType == "text"){
         if(/^[?|help]/gi.test(message.Content)){
@@ -34,11 +36,11 @@ module.exports = function (req,res,next) {
         }
 
         if(message.Content == "0"){
-            res.reply("返回上一级" +  req.session.step);
+            res.reply("返回上一级");
         }
 
         if(message.Content == "1"){
-            req.session.step = 1 ;
+            current[message.OpenID] =1;
             res.reply("请输入查询的公司名称")
         }
 

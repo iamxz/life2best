@@ -23,8 +23,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'keyboard cat', cookie: {maxAge: 60000}}))
-
+app.use(session({secret: 'keyboard cat', cookie: {}}));
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1) // trust first proxy
+}
 app.use('/', routes);
 app.use('/wechat', wechat({ token: config.weixin.token, appid: config.weixin.appid, encodingAESKey: config.weixin.encodingAESKey }, weixin));
 
