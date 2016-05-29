@@ -45,7 +45,7 @@ module.exports = function (req,res,next) {
             res.reply("返回上一级" + db.get(_thisUser)|| 0);
         }
 
-        logger.log("info",);
+        logger.log("info",db.get(_thisUser));
         if(db.get(_thisUser)){
             if(db.get(_thisUser) == 1){
                 var index = weather.indexOf(message.Content);
