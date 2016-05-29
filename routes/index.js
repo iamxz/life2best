@@ -4,7 +4,7 @@ var router = express.Router();
 var app = express();
 var config = require("../config");
 
-var oauth = new wechat.OAuth(config.weixin.appid, config.weixin.appsecret);
+
 app.use(express.query());
 
 app.use('/wechat', wechat({
@@ -14,7 +14,7 @@ app.use('/wechat', wechat({
 }, function (req, res, next) {
   // 微信输入信息都在req.weixin上
   var message = req.weixin;
-
+  res.send("sdfs");
 }));
 
 
