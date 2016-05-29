@@ -24,11 +24,10 @@ module.exports = function (req,res,next) {
     var message = req.weixin;
 
     logger.log("info","________________________________");
-    console.log(message);
     logger.log("info",message);
 
     if(message.MsgType == "text"){
-        if(/^[?|help]/gi.test(message.Content)){
+        if(/^[\?|help]/gi.test(message.Content)){
             res.reply({
                 content: _list,
                 type: 'text'
