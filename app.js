@@ -3,7 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
+// var session = require('express-session');
 var bodyParser = require('body-parser');
 
 var wechat = require('wechat');
@@ -24,8 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'keyboard cat', cookie: {}}));
-
+// app.use(session({secret: 'keyboard cat', cookie: {}}));
 app.use('/', routes);
 app.use('/wechat', wechat({ token: config.weixin.token, appid: config.weixin.appid, encodingAESKey: config.weixin.encodingAESKey }, weixin));
 
