@@ -2,10 +2,12 @@
  * Created by xue on 2016/5/29.
  */
 var menu = require("./menu");
-var fs    = require("fs");
+var web  = require("request");
+var FS    = require("fs");
 var winston  = require("winston");
-var weather  = fs.readFileSync("../data/weather");
-console.log(weather)
+var weather  = FS.readFileSync("./data/weather.db","utf-8");
+
+
 var logger = new (winston.Logger)({
     level: 'info',
     transports: [
@@ -30,7 +32,7 @@ module.exports = function (req,res,next) {
     logger.log("info",message);
 
     if(message.MsgType == "text"){
-        if(/^[\?|help]/gi.test(message.Content)){
+        if(/^(\?|help)/gi.test(message.Content)){
             res.reply({
                 content: _list,
                 type: 'text'
@@ -45,7 +47,22 @@ module.exports = function (req,res,next) {
 
         if(current[message.FromUserName]){
             if(current[message.FromUserName] == 1){
-                logger.log("info",weather);
+                var index =weather.indexOf(message.Content);
+               if(index >-1){
+                   //天气预报   "http://www.weather.com.cn/data/sk/101110101.html"
+
+                   var code = weather.substring(i-10,i-1);
+                   web("http://www.weather.com.cn/data/sk/" + code + ".html",function (error, response, body) {
+                       if (!error && response.statusCode == 200) {
+                           logger.log("info",body);
+                            res.reply("天气")
+                       }
+                   })
+               }else{
+                   res.reply("请输入正确的城市")
+               }
+
+
             }
         }
 
