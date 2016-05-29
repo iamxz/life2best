@@ -17,7 +17,7 @@ module.exports = function (req,res,next) {
     console.log(message);
 
     if(message.MsgType == "text"){
-        if(/^?|help/gi.test(message.Content)){
+        if(/^[\?|help]/gi.test(message.Content)){
             res.reply({
                 content: _list,
                 type: 'text'
