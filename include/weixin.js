@@ -7,12 +7,10 @@ var menu = require("./menu");
 module.exports = function (req,res,next) {
     var message = req.weixin;
     console.log(message);
-    res.reply('hehe');
-
 
     if(message.MsgType == "text"){
         if(/^[？|help]/gi.test(message.Content)){
-            menu()
+            menu(req,res,next)
         }
     }
 
