@@ -6,7 +6,8 @@ var menu = require("./menu");
 var web  = require("request");
 var fs    = require("fs");
 var winston  = require("winston");
-var app = require("express")();
+var db = require('lowdb')('./data/db.json');
+
 var weather  = fs.readFileSync("./data/weather.db","utf-8");
 
 var logger = new (winston.Logger)({
@@ -41,12 +42,12 @@ module.exports = function (req,res,next) {
 
 
         if(message.Content == "0"){
-            res.reply("返回上一级" + app.locals[_thisUser] || 0);
+            res.reply("返回上一级" + db.get(_thisUser)|| 0);
         }
 
-        logger.log("info",app.locals[_thisUser]);
-        // if(app.locals[_thisUser]){
-        //     if(app.locals[_thisUser] == 1){
+        logger.log("info",);
+        if(db.get(_thisUser)){
+            if(db.get(_thisUser) == 1){
                 var index = weather.indexOf(message.Content);
                 logger.log("info","code的顺序是" +index);
                if(index >-1){
@@ -61,31 +62,31 @@ module.exports = function (req,res,next) {
                }else{
                    res.reply("请输入正确的城市")
                }
-        //     }
-        // }
+            }
+        }
 
         if(message.Content == "1"){
-            app.locals[_thisUser] = 1;
+            db.set(_thisUser,1).value();
             res.reply("请输入地区,例如： “北京”");
         }
 
         if(message.Content == "2"){
-            app.locals[_thisUser]  = 2 ;
+            db.set(_thisUser,2).value();
 
             res.reply("请输入查询的公司名称")
 
         }
 
         if(message.Content == "3"){
-            app.locals[_thisUser]  = 3 ;
+            db.set(_thisUser,3).value();
             res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
         }
         if(message.Content == "4"){
-            app.locals[_thisUser]  = 4;
+            db.set(_thisUser,4).value();
             res.reply("请输入歌曲名")
         }
         if(message.Content == "5"){
-            app.locals[_thisUser]  = 5 ;
+            db.set(_thisUser,5).value();
             res.reply("请输入快递单号")
         }
         if(message.Content == "6"){
