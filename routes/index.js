@@ -1,9 +1,9 @@
-const express = require('express');
-const wechat = require('wechat');
-let router = express.Router();
-let app = express();
+var express = require('express');
+var wechat = require('wechat');
+var router = express.Router();
+var app = express();
 
-let config = {
+var config = {
   token: 'life2best',
   appid: 'wx3cf2223178a12ecc',
   encodingAESKey: '4qn3VVC2DFQRWAbJYyKEReai2Eje01PpcAVZptzwsN4'
