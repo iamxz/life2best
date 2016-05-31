@@ -72,7 +72,6 @@ module.exports = function (req,res,next) {
 
         if(db.get(_thisUser)){
             logger.log("info","进入菜单");
-            logger.log("info",db.get(_thisUser));
             if(db.get(_thisUser) == 1){
                 var index = weather.indexOf(message.Content);
                if(index >-1){
@@ -83,7 +82,6 @@ module.exports = function (req,res,next) {
                        var _url ="http://www.weather.com.cn/data/cityinfo/" + code + ".html";
                        logger.log("info",_url);
                        web(_url,function (error, response, body) {
-
                            if(error){
                                db.set(_thisUser,null).value();
                                res.reply("查询失败");
@@ -98,11 +96,11 @@ module.exports = function (req,res,next) {
                                db.set(_thisUser,null).value();
                                res.reply("天气查询失败！");
                            }
-
                        });
                    }else{
                        res.reply("请重新输入正确的城市");
                    }
+                   return;
                }
             }
 
