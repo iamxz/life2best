@@ -129,18 +129,17 @@ module.exports = function (req,res,next) {
                         phone.get("phone").push(_thisText).value();
                         phoneText +=_thisText;
                     });
-
+                    logger.log("info",phoneText);
                     db.set(_thisUser,null).value();
                     res.reply(phoneText);
                 });
                 return;
-            }
+            };
 
             //笑话
             if(db.get(_thisUser) == 3){
                 res.reply("正在开发中");
                 return;
-
             }
 
 
