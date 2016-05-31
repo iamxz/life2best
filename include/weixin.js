@@ -133,7 +133,6 @@ module.exports = function (req,res,next) {
                         phoneText +=_thisText;
                     });
                     logger.log("info",phoneText);
-                    db.set(_thisUser,null).value();
                     res.reply(phoneText);
                 });
                 return;
