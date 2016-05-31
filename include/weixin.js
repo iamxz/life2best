@@ -71,6 +71,7 @@ module.exports = function (req,res,next) {
 
 
         if(db.get(_thisUser)){
+            logger.log("info","进入菜单");
             if(db.get(_thisUser) == 1){
                 var index = weather.indexOf(message.Content);
                if(index >-1){
@@ -97,7 +98,6 @@ module.exports = function (req,res,next) {
                    }else{
                        res.reply("请重新输入正确的城市");
                    }
-
                }
             }
 
@@ -140,7 +140,7 @@ module.exports = function (req,res,next) {
 
 
         setTimeout(function () {
-            db.set(_thisUser,null).value();
+            db.set(_thisUser,0).value();
             res.reply(_menu);
         },0);
 
