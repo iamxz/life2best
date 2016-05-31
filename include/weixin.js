@@ -62,7 +62,7 @@ module.exports = function (req,res,next) {
                                var data = weatherinfo["weatherinfo"];
                                res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
                            }else{
-                               res.reply("查询失败");
+                               res.reply("天气查询失败！");
                            }
 
                        });
