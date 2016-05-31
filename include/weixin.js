@@ -75,7 +75,8 @@ module.exports = function (req,res,next) {
 
 
         if(db.get(_thisUser)){
-
+            logger.log("info","菜单的 值");
+            logger.log("info",db.get(_thisUser));
             if(db.get(_thisUser) == 1){
                 logger.log("info","进入菜单1");
                 var weather  = fs.readFileSync("./data/weather.db","utf-8");
@@ -162,6 +163,7 @@ module.exports = function (req,res,next) {
                 res.reply("正在开发中");
                 return;
             }
+
             logger.log("info","离开菜单");
             res.reply(_menu)
 
