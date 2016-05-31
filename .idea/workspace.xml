@@ -27,41 +27,11 @@
       <file leaf-file-name="weixin.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/weixin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="145" column="43" selection-start-line="145" selection-start-column="43" selection-end-line="145" selection-end-column="43" />
+            <state relative-caret-position="230">
+              <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/request/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="37" column="3" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/request/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8227">
-              <caret line="20" column="35" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -292,12 +262,12 @@
       <workItem from="1464505991162" duration="12907000" />
       <workItem from="1464530360427" duration="13471000" />
       <workItem from="1464603888540" duration="967000" />
-      <workItem from="1464706628485" duration="2146000" />
+      <workItem from="1464706628485" duration="2443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32412000" />
+    <option name="totallyTimeSpent" value="32709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -677,14 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/request/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="37" column="3" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/request/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8227">
@@ -693,10 +655,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/request/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="37" column="3" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/weixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="145" column="43" selection-start-line="145" selection-start-column="43" selection-end-line="145" selection-end-column="43" />
+        <state relative-caret-position="230">
+          <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
           </folding>
