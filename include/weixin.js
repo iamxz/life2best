@@ -90,7 +90,7 @@ module.exports = function (req,res,next) {
                        logger.log("info",_url);
                        web(_url,function (error, response, body) {
                            if(error){
-                               db.set(_thisUser,null).value();
+                               db.set(_thisUser,0).value();
                                res.reply("查询失败");
                                return;
                            }
@@ -100,7 +100,7 @@ module.exports = function (req,res,next) {
                                var data = weatherinfo["weatherinfo"];
                                res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
                            }else{
-                               db.set(_thisUser,null).value();
+                               db.set(_thisUser,0).value();
                                res.reply("天气查询失败！");
                            }
                        });
@@ -116,11 +116,11 @@ module.exports = function (req,res,next) {
                 logger.log("info","进入菜单2");
                 var phone = lowdb('./data/phone.json');
                     phone.defaults({ phone: []}).value();
-                var _url ="https://www.baidu.com/s?wd=" + content + "电话";
+                var _url ="https://www.baidu.com/s?wd=" +encodeURIComponent( content + "电话");
                 logger.log("info",_url);
                 web(_url,function (error, response, body) {
                     if(error){
-                        db.set(_thisUser,null).value();
+                        db.set(_thisUser,0).value();
                         res.reply("查询失败");
                         return;
                     }
