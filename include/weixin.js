@@ -18,6 +18,7 @@ var logger = new (winston.Logger)({
     ]
 });
 var _menu = [
+    "0,返回上级菜单",
     "1,天气预报",
     "2,电话号码",
     "3,笑话",
@@ -33,11 +34,10 @@ module.exports = function (req,res,next) {
 
     if(message.MsgType == "text"){
 
-        
+
         //电话归属地 https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=
         if(message.Content == "0"){
             db.set(_thisUser,0).value();
-
 
             res.reply("返回上级菜单");
             return;
