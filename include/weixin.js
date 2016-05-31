@@ -17,7 +17,7 @@ var logger = new (winston.Logger)({
         new (winston.transports.File)({ filename: 'life2best.log' })
     ]
 });
-var _list = [
+var _menu = [
     "1,天气预报",
     "2,电话号码",
     "3,笑话",
@@ -32,24 +32,19 @@ module.exports = function (req,res,next) {
     logger.log("info",message);
 
     if(message.MsgType == "text"){
-        if(~message.Content.indexOf("?") || ~ message.Content.indexOf("什么")){
-            res.reply({
-                content: _list,
-                type: 'text'
-            });
-        }
 
-
-
+        
+        //电话归属地 https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=
         if(message.Content == "0"){
             db.set(_thisUser,0).value();
+
+
             res.reply("返回上级菜单");
             return;
         }
 
         if(db.get(_thisUser)){
             if(db.get(_thisUser) == 1){
-
                 var index = weather.indexOf(message.Content);
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
@@ -96,7 +91,6 @@ module.exports = function (req,res,next) {
                 return;
             }
 
-
             //快递单号
             if(db.get(_thisUser) == 5){
                 res.reply("正在开发中");
@@ -108,6 +102,8 @@ module.exports = function (req,res,next) {
                 res.reply("正在开发中");
                 return;
             }
+
+            res.reply(_menu)
 
 
         }
@@ -142,7 +138,7 @@ module.exports = function (req,res,next) {
         }
 
         setTimeout(function () {
-            res.reply("输入错误")
+            res.reply(_menu)
         },0);
 
 
