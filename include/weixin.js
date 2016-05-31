@@ -133,8 +133,8 @@ module.exports = function (req,res,next) {
                     $("table.op_kefutable_table tr").each(function (i,item) {
                         console.log($(this).html());
                         var title =$(this).find("td.op_kefutable_td1").text();
-                        var phone =$(this).find("td.op_kefutable_td2").text();
-                        var _thisText = (title|| content) + ":" +phone + "\n";
+                        var tel =$(this).find("td.op_kefutable_td2").text();
+                        var _thisText = (title|| content) + ":" +tel + "\n";
                         phone.get("phone").push(content +" | "+ _thisText).value();
                         phoneText +=_thisText;
                     });
