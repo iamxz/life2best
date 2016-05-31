@@ -27,14 +27,14 @@
       <file leaf-file-name="weixin.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/weixin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+            <state relative-caret-position="288">
+              <caret line="176" column="0" selection-start-line="172" selection-start-column="7" selection-end-line="176" selection-end-column="0" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
-                <element signature="e#4781#4856#0" expanded="false" />
-                <element signature="e#4914#4989#0" expanded="false" />
-                <element signature="e#5048#5123#0" expanded="false" />
-                <element signature="e#5180#5255#0" expanded="false" />
+                <element signature="e#4753#4828#0" expanded="false" />
+                <element signature="e#4886#4961#0" expanded="false" />
+                <element signature="e#5020#5095#0" expanded="false" />
+                <element signature="e#5152#5227#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -161,7 +161,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lowdb" />
+              <option name="myItemId" value="cheerio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -280,12 +280,12 @@
       <workItem from="1464505991162" duration="12907000" />
       <workItem from="1464530360427" duration="13471000" />
       <workItem from="1464603888540" duration="967000" />
-      <workItem from="1464706628485" duration="6736000" />
+      <workItem from="1464706628485" duration="6965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37002000" />
+    <option name="totallyTimeSpent" value="37231000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -345,28 +345,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/include/weixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4781#4856#0" expanded="false" />
-            <element signature="e#4914#4989#0" expanded="false" />
-            <element signature="e#5048#5123#0" expanded="false" />
-            <element signature="e#5180#5255#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/weixin.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4781#4856#0" expanded="false" />
-            <element signature="e#4914#4989#0" expanded="false" />
-            <element signature="e#5048#5123#0" expanded="false" />
-            <element signature="e#5180#5255#0" expanded="false" />
+            <element signature="e#4753#4828#0" expanded="false" />
+            <element signature="e#4886#4961#0" expanded="false" />
+            <element signature="e#5020#5095#0" expanded="false" />
+            <element signature="e#5152#5227#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -693,16 +679,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/cheerio/Readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="257" column="6" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/weixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+        <state relative-caret-position="288">
+          <caret line="176" column="0" selection-start-line="172" selection-start-column="7" selection-end-line="176" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4781#4856#0" expanded="false" />
-            <element signature="e#4914#4989#0" expanded="false" />
-            <element signature="e#5048#5123#0" expanded="false" />
-            <element signature="e#5180#5255#0" expanded="false" />
+            <element signature="e#4753#4828#0" expanded="false" />
+            <element signature="e#4886#4961#0" expanded="false" />
+            <element signature="e#5020#5095#0" expanded="false" />
+            <element signature="e#5152#5227#0" expanded="false" />
           </folding>
         </state>
       </provider>

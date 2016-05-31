@@ -124,12 +124,12 @@ module.exports = function (req,res,next) {
                         res.reply("查询失败");
                         return;
                     }
-                    logger.log("info",body);
+
                     $ = cheerio.load(body);
                     var phoneText ='';
                     $(".op_kefutable_table tr").each(function () {
                         var _thisText =$(this).find(".op_kefutable_td1").text() + ":" +$(this).find(".op_kefutable_td2").text() + "\n";
-                        phone.get("phone").push(_thisText).value();
+                        phone.get("phone").push(content +" | "+ _thisText).value();
                         phoneText +=_thisText;
                     });
                     logger.log("info",phoneText);
@@ -170,10 +170,10 @@ module.exports = function (req,res,next) {
 
 
 
-        // setTimeout(function () {
-        //     db.set(_thisUser,0).value();
-        //     res.reply(_menu);
-        // },0);
+        setTimeout(function () {
+            db.set(_thisUser,0).value();
+            res.reply(_menu);
+        },0);
 
 
     }
