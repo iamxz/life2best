@@ -75,8 +75,9 @@ module.exports = function (req,res,next) {
 
 
         if(db.get(_thisUser)){
-            logger.log("info","进入菜单");
+
             if(db.get(_thisUser) == 1){
+                logger.log("info","进入菜单1");
                 var weather  = fs.readFileSync("./data/weather.db","utf-8");
                 var index = weather.indexOf(content);
                if(index >-1){
@@ -111,7 +112,8 @@ module.exports = function (req,res,next) {
 
             //电话号码
             if(db.get(_thisUser) == 2){
-                var phone = lowdb('./data/phone.json')
+                logger.log("info","进入菜单2");
+                var phone = lowdb('./data/phone.json');
                     phone.defaults({ phone: []}).value();
                 var _url ="https://www.baidu.com/s?wd=" + content + "电话";
                 logger.log("info",_url);
