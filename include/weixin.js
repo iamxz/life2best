@@ -49,23 +49,27 @@ module.exports = function (req,res,next) {
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
                    var code = weather.substring(index-10,index-1);
-                   web.get("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
+                   if(code ==9){
+                       web.get("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
 
-                       if(error){
-                           res.reply("查询失败");
-                           return;
-                       }
-                       
-                       logger.log("info",body);
-                       logger.log("info",req.is('json'))
-                       var weatherinfo = JSON.parse(body);
-                       var data = weatherinfo["weatherinfo"];
+                           if(error){
+                               res.reply("查询失败");
+                               return;
+                           }
+                           logger.log("info",body);
+                           if(/^\{/gi.test(body.trim())){
+                               var weatherinfo = JSON.parse(body);
+                               var data = weatherinfo["weatherinfo"];
+                               res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
+                           }else{
+                               res.reply("查询失败");
+                           }
 
-                       res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
+                       });
+                   }else{
+                       res.reply("请输入正确的城市");
+                   }
 
-
-                   });
-                   return ;
 
                }else{
                    res.reply("请输入正确的城市")
@@ -139,6 +143,7 @@ module.exports = function (req,res,next) {
         }
 
         setTimeout(function () {
+            db.set(_thisUser,null).value();
             res.reply(_menu)
         },0);
 
