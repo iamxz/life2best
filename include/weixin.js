@@ -125,11 +125,14 @@ module.exports = function (req,res,next) {
                         return;
                     }
 
-                    $ = cheerio.load(body);
+                    $ = cheerio.load(body,{
+                        ignoreWhitespace: true,
+                        xmlMode: true
+                    });
                     var phoneText ='';
                     $("table.op_kefutable_table tr").each(function (i,item) {
-                        console.log(item);
-                        var _thisText =item.find("td.op_kefutable_td1").text() || content + ":" +item.find("td.op_kefutable_td2").text() + "\n";
+                        console.log($(this));
+                        var _thisText =$(this).find("td.op_kefutable_td1").text() || content + ":" +$(this).find("td.op_kefutable_td2").text() + "\n";
                         phone.get("phone").push(content +" | "+ _thisText).value();
                         phoneText +=_thisText;
                     });

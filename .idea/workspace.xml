@@ -27,14 +27,14 @@
       <file leaf-file-name="weixin.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/weixin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="130" column="42" selection-start-line="130" selection-start-column="42" selection-end-line="130" selection-end-column="42" />
+            <state relative-caret-position="193">
+              <caret line="129" column="37" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="37" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
-                <element signature="e#4816#4891#0" expanded="false" />
-                <element signature="e#4949#5024#0" expanded="false" />
-                <element signature="e#5083#5158#0" expanded="false" />
-                <element signature="e#5215#5290#0" expanded="false" />
+                <element signature="e#4935#5010#0" expanded="false" />
+                <element signature="e#5068#5143#0" expanded="false" />
+                <element signature="e#5202#5277#0" expanded="false" />
+                <element signature="e#5334#5409#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -280,12 +280,12 @@
       <workItem from="1464505991162" duration="12907000" />
       <workItem from="1464530360427" duration="13471000" />
       <workItem from="1464603888540" duration="967000" />
-      <workItem from="1464706628485" duration="7447000" />
+      <workItem from="1464706628485" duration="7631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37713000" />
+    <option name="totallyTimeSpent" value="37897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -349,10 +349,10 @@
           <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4816#4891#0" expanded="false" />
-            <element signature="e#4949#5024#0" expanded="false" />
-            <element signature="e#5083#5158#0" expanded="false" />
-            <element signature="e#5215#5290#0" expanded="false" />
+            <element signature="e#4935#5010#0" expanded="false" />
+            <element signature="e#5068#5143#0" expanded="false" />
+            <element signature="e#5202#5277#0" expanded="false" />
+            <element signature="e#5334#5409#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -689,14 +689,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/weixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="130" column="42" selection-start-line="130" selection-start-column="42" selection-end-line="130" selection-end-column="42" />
+        <state relative-caret-position="193">
+          <caret line="129" column="37" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="37" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4816#4891#0" expanded="false" />
-            <element signature="e#4949#5024#0" expanded="false" />
-            <element signature="e#5083#5158#0" expanded="false" />
-            <element signature="e#5215#5290#0" expanded="false" />
+            <element signature="e#4935#5010#0" expanded="false" />
+            <element signature="e#5068#5143#0" expanded="false" />
+            <element signature="e#5202#5277#0" expanded="false" />
+            <element signature="e#5334#5409#0" expanded="false" />
           </folding>
         </state>
       </provider>
