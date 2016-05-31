@@ -27,14 +27,14 @@
       <file leaf-file-name="weixin.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/weixin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="102" column="49" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+            <state relative-caret-position="212">
+              <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
-                <element signature="e#4782#4857#0" expanded="false" />
-                <element signature="e#4915#4990#0" expanded="false" />
-                <element signature="e#5049#5124#0" expanded="false" />
-                <element signature="e#5181#5256#0" expanded="false" />
+                <element signature="e#4781#4856#0" expanded="false" />
+                <element signature="e#4914#4989#0" expanded="false" />
+                <element signature="e#5048#5123#0" expanded="false" />
+                <element signature="e#5180#5255#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -280,12 +280,12 @@
       <workItem from="1464505991162" duration="12907000" />
       <workItem from="1464530360427" duration="13471000" />
       <workItem from="1464603888540" duration="967000" />
-      <workItem from="1464706628485" duration="6254000" />
+      <workItem from="1464706628485" duration="6736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36520000" />
+    <option name="totallyTimeSpent" value="37002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -349,10 +349,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4782#4857#0" expanded="false" />
-            <element signature="e#4915#4990#0" expanded="false" />
-            <element signature="e#5049#5124#0" expanded="false" />
-            <element signature="e#5181#5256#0" expanded="false" />
+            <element signature="e#4781#4856#0" expanded="false" />
+            <element signature="e#4914#4989#0" expanded="false" />
+            <element signature="e#5048#5123#0" expanded="false" />
+            <element signature="e#5180#5255#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -363,10 +363,10 @@
           <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4782#4857#0" expanded="false" />
-            <element signature="e#4915#4990#0" expanded="false" />
-            <element signature="e#5049#5124#0" expanded="false" />
-            <element signature="e#5181#5256#0" expanded="false" />
+            <element signature="e#4781#4856#0" expanded="false" />
+            <element signature="e#4914#4989#0" expanded="false" />
+            <element signature="e#5048#5123#0" expanded="false" />
+            <element signature="e#5180#5255#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -695,14 +695,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/weixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="102" column="49" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+        <state relative-caret-position="212">
+          <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#4782#4857#0" expanded="false" />
-            <element signature="e#4915#4990#0" expanded="false" />
-            <element signature="e#5049#5124#0" expanded="false" />
-            <element signature="e#5181#5256#0" expanded="false" />
+            <element signature="e#4781#4856#0" expanded="false" />
+            <element signature="e#4914#4989#0" expanded="false" />
+            <element signature="e#5048#5123#0" expanded="false" />
+            <element signature="e#5180#5255#0" expanded="false" />
           </folding>
         </state>
       </provider>

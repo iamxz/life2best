@@ -116,7 +116,7 @@ module.exports = function (req,res,next) {
                 logger.log("info","进入菜单2");
                 var phone = lowdb('./data/phone.json');
                     phone.defaults({ phone: []}).value();
-                var _url ="https://www.baidu.com/s?wd=" +encodeURIComponent( content + "电话");
+                var _url ="http://www.baidu.com/s?wd=" +encodeURIComponent( content + "电话");
                 logger.log("info",_url);
                 web(_url,function (error, response, body) {
                     if(error){
