@@ -57,12 +57,12 @@ module.exports = function (req,res,next) {
         }
 
         if(content == "3"){
-            db.set(_thisUser,3).value();
+            // db.set(_thisUser,3).value();
             res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
         }
         if(content == "4"){
             db.set(_thisUser,4).value();
-            res.reply("请输入歌曲名")
+            res.reply("请输入歌曲名");
         }
         if(content == "5"){
             db.set(_thisUser,5).value();
