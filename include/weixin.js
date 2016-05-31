@@ -72,13 +72,18 @@ module.exports = function (req,res,next) {
 
         if(db.get(_thisUser)){
             logger.log("info","进入菜单");
+            logger.log("info",db.get(_thisUser));
             if(db.get(_thisUser) == 1){
                 var index = weather.indexOf(message.Content);
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
                    var code = weather.substring(index-10,index-1);
+                   logger.log("info",code);
                    if(code.length ==9){
-                       web("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
+                       var _url ="http://www.weather.com.cn/data/cityinfo/" + code + ".html";
+                       logger.log("info",_url);
+                       web(_url,function (error, response, body) {
+
                            if(error){
                                db.set(_thisUser,null).value();
                                res.reply("查询失败");
