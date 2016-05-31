@@ -38,10 +38,37 @@ module.exports = function (req,res,next) {
         //电话归属地 https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=
         if(message.Content == "0"){
             db.set(_thisUser,0).value();
-
             res.reply("返回上级菜单");
             return;
         }
+        if(message.Content == "1"){
+            db.set(_thisUser,1).value();
+            res.reply("请输入地区,例如： “北京”");
+        }
+
+        if(message.Content == "2"){
+            db.set(_thisUser,2).value();
+            res.reply("请输入查询的公司名称")
+
+        }
+
+        if(message.Content == "3"){
+            db.set(_thisUser,3).value();
+            res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
+        }
+        if(message.Content == "4"){
+            db.set(_thisUser,4).value();
+            res.reply("请输入歌曲名")
+        }
+        if(message.Content == "5"){
+            db.set(_thisUser,5).value();
+            res.reply("请输入快递单号")
+        }
+        if(message.Content == "6"){
+            db.set(_thisUser,6).value();
+            res.reply("请输入地区名称")
+        }
+
 
         if(db.get(_thisUser)){
             if(db.get(_thisUser) == 1){
@@ -51,8 +78,8 @@ module.exports = function (req,res,next) {
                    var code = weather.substring(index-10,index-1);
                    if(code.length ==9){
                        web.get("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
-
                            if(error){
+                               db.set(_thisUser,null).value();
                                res.reply("查询失败");
                                return;
                            }
@@ -62,12 +89,13 @@ module.exports = function (req,res,next) {
                                var data = weatherinfo["weatherinfo"];
                                res.reply(data.city + "天气 ：" + data.weather+"\n温度：" + data.temp1 + "到" +data.temp2 + "度");
                            }else{
+                               db.set(_thisUser,null).value();
                                res.reply("天气查询失败！");
                            }
 
                        });
                    }else{
-                       res.reply("请输入正确的城市");
+                       res.reply("请重新输入正确的城市");
                    }
 
                }
@@ -107,37 +135,9 @@ module.exports = function (req,res,next) {
 
             res.reply(_menu)
 
-
         }
 
-        if(message.Content == "1"){
-            db.set(_thisUser,1).value();
-            res.reply("请输入地区,例如： “北京”");
-        }
 
-        if(message.Content == "2"){
-            db.set(_thisUser,2).value();
-
-            res.reply("请输入查询的公司名称")
-
-        }
-
-        if(message.Content == "3"){
-            db.set(_thisUser,3).value();
-            res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
-        }
-        if(message.Content == "4"){
-            db.set(_thisUser,4).value();
-            res.reply("请输入歌曲名")
-        }
-        if(message.Content == "5"){
-            db.set(_thisUser,5).value();
-            res.reply("请输入快递单号")
-        }
-        if(message.Content == "6"){
-            db.set(_thisUser,6).value();
-            res.reply("请输入地区名称")
-        }
 
         setTimeout(function () {
             db.set(_thisUser,null).value();
