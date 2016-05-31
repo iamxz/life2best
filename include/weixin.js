@@ -126,12 +126,13 @@ module.exports = function (req,res,next) {
                     }
 
                     $ = cheerio.load(body,{
-                        ignoreWhitespace: true,
-                        xmlMode: true
+                        // ignoreWhitespace: true,
+                        // xmlMode: true
                     });
                     var phoneText ='';
                     $("table.op_kefutable_table tr").each(function (i,item) {
                         console.log($(this).html());
+                        console.log($(this).find("td.op_kefutable_td1").text())
                         console.log($(this).find("td.op_kefutable_td2").text())
                         var _thisText = ($(this).find("td.op_kefutable_td1").text() || content + ":" + $(this).find("td.op_kefutable_td2").text() + "\n");
                         phone.get("phone").push(content +" | "+ _thisText).value();
