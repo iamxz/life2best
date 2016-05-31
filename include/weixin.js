@@ -78,7 +78,7 @@ module.exports = function (req,res,next) {
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
                    var code = weather.substring(index-10,index-1);
                    if(code.length ==9){
-                       web.get("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
+                       web("http://www.weather.com.cn/data/cityinfo/" + code + ".html",function (error, response, body) {
                            if(error){
                                db.set(_thisUser,null).value();
                                res.reply("查询失败");
