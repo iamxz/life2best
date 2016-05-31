@@ -128,7 +128,7 @@ module.exports = function (req,res,next) {
                     $ = cheerio.load(body);
                     var phoneText ='';
                     $(".op_kefutable_table tr").each(function () {
-                        var _thisText =$(this).find(".op_kefutable_td1").text() + ":" +$(this).find(".op_kefutable_td2").text() + "\n";
+                        var _thisText =$(this).find(".op_kefutable_td1").text() || content + ":" +$(this).find(".op_kefutable_td2").text() + "\n";
                         phone.get("phone").push(content +" | "+ _thisText).value();
                         phoneText +=_thisText;
                     });
