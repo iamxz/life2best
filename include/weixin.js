@@ -6,9 +6,13 @@ var menu = require("./menu");
 var web  = require("request");
 var fs    = require("fs");
 var winston  = require("winston");
-var db = require('lowdb')('./data/db.json');
+var lowdb = require('lowdb');
+var cheerio = require('cheerio');
+var db = lowdb('./data/db.json');
 
-var weather  = fs.readFileSync("./data/weather.db","utf-8");
+
+
+
 
 var logger = new (winston.Logger)({
     level: 'info',
@@ -34,37 +38,37 @@ module.exports = function (req,res,next) {
 
     if(message.MsgType == "text"){
 
+        var content = message.Content;
 
         //电话归属地 https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=
-        if(message.Content == "0"){
+        if(content == "0"){
             db.set(_thisUser,0).value();
             res.reply("返回上级菜单");
             return;
         }
-        if(message.Content == "1"){
+        if(content == "1"){
             db.set(_thisUser,1).value();
             res.reply("请输入地区,例如： “北京”");
         }
 
-        if(message.Content == "2"){
+        if(content == "2"){
             db.set(_thisUser,2).value();
             res.reply("请输入查询的公司名称")
-
         }
 
-        if(message.Content == "3"){
+        if(content == "3"){
             db.set(_thisUser,3).value();
             res.reply('“屎克郎，你不是移‍民了吗？怎么又回来了？”\n“再不回来，就饿死了！”\n“怎么会这样子!”\n“那是一个鸟不拉屎的地方!”')
         }
-        if(message.Content == "4"){
+        if(content == "4"){
             db.set(_thisUser,4).value();
             res.reply("请输入歌曲名")
         }
-        if(message.Content == "5"){
+        if(content == "5"){
             db.set(_thisUser,5).value();
             res.reply("请输入快递单号")
         }
-        if(message.Content == "6"){
+        if(content == "6"){
             db.set(_thisUser,6).value();
             res.reply("请输入地区名称")
         }
@@ -73,7 +77,8 @@ module.exports = function (req,res,next) {
         if(db.get(_thisUser)){
             logger.log("info","进入菜单");
             if(db.get(_thisUser) == 1){
-                var index = weather.indexOf(message.Content);
+                var weather  = fs.readFileSync("./data/weather.db","utf-8");
+                var index = weather.indexOf(content);
                if(index >-1){
                    //天气预报   "http://www.weather.com.cn/data/cityinfo/101020100.html"
                    var code = weather.substring(index-10,index-1);
@@ -106,7 +111,28 @@ module.exports = function (req,res,next) {
 
             //电话号码
             if(db.get(_thisUser) == 2){
-                res.reply("正在开发中");
+                var phone = lowdb('./data/phone.json')
+                    phone.defaults({ phone: []}).value();
+                var _url ="https://www.baidu.com/s?wd=" + content + "电话";
+                logger.log("info",_url);
+                web(_url,function (error, response, body) {
+                    if(error){
+                        db.set(_thisUser,null).value();
+                        res.reply("查询失败");
+                        return;
+                    }
+                    logger.log("info",body);
+                    $ = cheerio.load(body);
+                    var phoneText ='';
+                    $(".op_kefutable_table tr").each(function () {
+                        var _thisText =$(this).find(".op_kefutable_td1").text() + ":" +$(this).find(".op_kefutable_td2").text() + "\n";
+                        phone.get("phone").push(_thisText).value();
+                        phoneText +=_thisText;
+                    });
+
+                    db.set(_thisUser,null).value();
+                    res.reply(phoneText);
+                });
                 return;
             }
 
