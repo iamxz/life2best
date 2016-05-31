@@ -57,6 +57,7 @@ module.exports = function (req,res,next) {
                        }
                        
                        logger.log("info",body);
+                       logger.log("info",req.is('json'))
                        var weatherinfo = JSON.parse(body);
                        var data = weatherinfo["weatherinfo"];
 
