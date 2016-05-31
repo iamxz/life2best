@@ -162,7 +162,7 @@ module.exports = function (req,res,next) {
                 res.reply("正在开发中");
                 return;
             }
-
+            logger.log("info","离开菜单");
             res.reply(_menu)
 
         }
