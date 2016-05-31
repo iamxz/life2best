@@ -167,10 +167,10 @@ module.exports = function (req,res,next) {
 
 
 
-        setTimeout(function () {
-            db.set(_thisUser,0).value();
-            res.reply(_menu);
-        },0);
+        // setTimeout(function () {
+        //     db.set(_thisUser,0).value();
+        //     res.reply(_menu);
+        // },0);
 
 
     }
